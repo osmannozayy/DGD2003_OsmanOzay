@@ -1,49 +1,38 @@
-Game Design Document (GDD): Project "Lost Compass"
-1. Game Overview
-Game Title: Lost Compass (Working Title)
+# Lost Compass (Working Title)
 
-Genre: 3D First-Person (FPS) / Puzzle / Exploration
+## 📖 About the Project
+**Lost Compass** is a 3D First-Person (FPS) puzzle and exploration game focused on spatial memory, orientation, and time management. 
 
-Platform: PC
+The player wakes up in a symmetrical, maze-like laboratory environment. With no minimap or traditional compass available, the core challenge is to navigate the identical corridors and find the exit using purely environmental clues, sound, and a limited marking system.
 
-Theme: Orientation, spatial memory, isolation, and time management.
+## 🎮 Core Gameplay Loop
+* **Observe:** Examine the rooms and corridors to identify subtle environmental landmarks.
+* **Explore:** Navigate through the maze, avoiding dead ends and looping paths.
+* **Solve:** Locate and activate hidden generators to unlock the main exit door.
+* **Escape:** Reach the exit before the timer runs out or the facility loses power.
 
-Core Concept: The player wakes up in a symmetrical and complex laboratory or office environment made up of identical corridors. With no minimap or traditional compass, they must find the exit by establishing their orientation using purely environmental clues (sounds, lighting differences, markings on the walls).
+## ⚙️ Mechanics
+* **Movement:** Standard FPS WASD controls with a limited "Sprint" ability for quick escapes.
+* **Orientation System (No UI Map):**
+  * **Breadcrumb Trail:** Drop a limited number of digital markers to track your path and avoid getting lost.
+  * **Audio Clues:** Utilize 3D spatial audio to pinpoint a low-frequency beacon coming from the exit door.
+* **Visual Memory:** Rely on minor environmental storytelling elements (e.g., a flickering light, an overturned chair) to differentiate identical whitebox rooms.
 
-2. Core Gameplay Loop
-Observe: The player examines their current room and corridor to identify landmarks.
+## 🏗️ Level Design
+* **Phase 1 (Blockout):** A single-story, horizontal layout featuring a central corridor with symmetrical side rooms to introduce orientation mechanics.
+* **Progression:** Later levels introduce verticality (stairs, elevators) and distinct visual zones (e.g., Blue Sector, Red Sector) to increase mental mapping complexity.
 
-Explore: They navigate between rooms to find the correct path, avoiding dead ends.
+## 💻 Technical Stack & Core Scripts
+Built with **Unity 3D** and **C#**. 
 
-Solve: They locate and activate generators hidden within the maze to unlock the main exit door.
+The project is structured around a few foundational scripts, making it a great environment for building core C# logic step-by-step:
+* `PlayerMovement.cs`: Handles basic character walking, running, and mouse-look camera rotation.
+* `MarkerSystem.cs`: Manages instantiating marker prefabs at the player's location and tracking inventory limits.
+* `AudioBeacon.cs`: Uses Unity's 3D spatial audio system to adjust volume and pitch based on the player's distance from the exit.
+* `GameManager.cs`: The overarching script controlling the countdown timer, puzzle states, and win/loss conditions.
 
-Escape: They must reach the exit before a timer runs out or the environment plunges into total darkness (a fast-paced "race against time" mechanic to add tension).
-
-3. Mechanics
-Movement Controls: Standard WASD controls. The baseline walking speed should allow careful observation of the environment, paired with a limited "Sprint" ability (Shift) for quick escapes.
-
-Orientation System (No UI Map):
-
-Breadcrumb Trail: The player can drop a limited number of digital markers (or use spray paint) on the ground to track where they've been and avoid looping in circles.
-
-Audio Clues: A rhythmic, low-frequency beacon sounds from the exit door. The player must use stereo audio/headphones to pinpoint the direction of the sound.
-
-Visual Memory & Landmarks: While the whitebox rooms have the exact same geometric shape, minor environmental storytelling elements must be placed to help the player orient themselves (e.g., an overturned chair, a flickering light, a differently colored floor panel, or specific wall decals).
-
-4. Level Design
-Reference Image Analysis: The layout in your Unity screenshot consists of a central corridor with symmetrical side rooms. This is a perfect, contained layout for the game's initial "Tutorial" level to introduce the orientation mechanics.
-
-Progression: Early levels will focus on horizontal, single-story orientation (like the image). Later levels will introduce verticality (stairs, elevators), forcing the player to map out complex, multi-floor 3D spaces in their head.
-
-Zones: The maze can be divided into distinct visual zones (e.g., Blue Sector, Red Sector). These color codes serve as macro-landmarks to help players mentally map the facility.
-
-5. Technical Requirements & C# Scripts
-To bring this prototype to life in Unity, you will need a few foundational C# scripts:
-
-PlayerMovement.cs: The core logic handling character walking, running, and mouse-look camera rotation.
-
-MarkerSystem.cs: A system that instantiates marker prefabs at the player's location and tracks the remaining inventory limit.
-
-AudioBeacon.cs: A script attached to the exit door that utilizes Unity's 3D spatial audio, adjusting volume and pitch based on the player's distance.
-
-GameManager.cs: The overarching script controlling the countdown timer, puzzle states, and the win/loss conditions.
+## 🚀 Getting Started
+1. Clone this repository to your local machine.
+2. Open the project via Unity Hub.
+3. Open the blockout scene (e.g., `Level_01_Whitebox`) located in the `Scenes` folder.
+4. Hit **Play** to test the environment.
