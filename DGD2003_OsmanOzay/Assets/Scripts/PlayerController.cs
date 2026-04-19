@@ -23,19 +23,19 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.aKey.isPressed) h = -1;
         if (Keyboard.current.dKey.isPressed) h = 1;
 
-        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
         {
             ResetAllBools();
             animator.SetBool("isDancing", true);
         }
 
-        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        if (Keyboard.current.digit5Key.wasPressedThisFrame)
         {
             ResetAllBools();
             animator.SetBool("isHappy", true);
         }
 
-        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+        if (Keyboard.current.digit6Key.wasPressedThisFrame)
         {
             ResetAllBools();
             animator.SetBool("isSad", true);
