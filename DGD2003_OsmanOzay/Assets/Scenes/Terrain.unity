@@ -240,6 +240,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rotationSpeed: 15
+--- !u!114 &80393144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80393140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01997699c214d59449c11d02a1982cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JoeReaction
 --- !u!1 &151044537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3661985432938654458, guid: 087730f5019ebf44c81e7783fe757645, type: 3}
@@ -466,7 +478,7 @@ Transform:
   m_GameObject: {fileID: 477366196}
   serializedVersion: 2
   m_LocalRotation: {x: -0.082154095, y: -0.084270515, z: -0.0069717895, w: 0.993026}
-  m_LocalPosition: {x: 106.56, y: 4.910201, z: 161.44307}
+  m_LocalPosition: {x: 106.56, y: 4.8402014, z: 161.42308}
   m_LocalScale: {x: 0.94697, y: 0.94697, z: 0.94697}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -937,10 +949,45 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 833833409}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 087730f5019ebf44c81e7783fe757645, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075673517}
     - targetCorrespondingSourceObject: {fileID: -3661985432938654458, guid: 087730f5019ebf44c81e7783fe757645, type: 3}
       insertIndex: -1
       addedObject: {fileID: 151044541}
   m_SourcePrefab: {fileID: 100100000, guid: 087730f5019ebf44c81e7783fe757645, type: 3}
+--- !u!1 &1075673516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 087730f5019ebf44c81e7783fe757645, type: 3}
+  m_PrefabInstance: {fileID: 1075673515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1075673517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075673516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025542c4196db8c44981647c1949f91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EyeOfSauron
+  onEyeSpotted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 80393144}
+        m_TargetAssemblyTypeName: JoeReaction, Assembly-CSharp
+        m_MethodName: ShrinkInFear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1149797722
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,15 +1045,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.687
+      value: 4.7470365
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.687
+      value: 4.7470365
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.687
+      value: 4.7470365
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1014,11 +1061,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 170.84
+      value: 170.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1087,6 +1134,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 80393143}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80393144}
   m_SourcePrefab: {fileID: 100100000, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
 --- !u!1 &1363914838
 GameObject:
@@ -1532,7 +1582,7 @@ Transform:
   m_GameObject: {fileID: 2124175596}
   serializedVersion: 2
   m_LocalRotation: {x: -0.082154095, y: -0.084270515, z: -0.006971789, w: 0.993026}
-  m_LocalPosition: {x: 106.56, y: 4.910201, z: 161.44307}
+  m_LocalPosition: {x: 106.56, y: 4.8402014, z: 161.42308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
