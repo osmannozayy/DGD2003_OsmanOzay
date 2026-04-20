@@ -4,16 +4,34 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Animator animator;
-    public float rotationSpeed = 15f;
+    public Transform playerCamera;
+    public float mouseSensitivity = 15f;
+    public float moveSpeed = 5f;
+
+    private float xRotation = 0f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        if (Keyboard.current == null) return;
+        if (Keyboard.current == null || Mouse.current == null) return;
+
+        float mouseX = Mouse.current.delta.x.ReadValue() * mouseSensitivity * Time.deltaTime;
+        float mouseY = Mouse.current.delta.y.ReadValue() * mouseSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        if (playerCamera != null)
+        {
+            playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        }
+
+        transform.Rotate(Vector3.up * mouseX);
 
         float h = 0;
         float v = 0;
@@ -46,23 +64,11 @@ public class PlayerController : MonoBehaviour
             ResetAllBools();
         }
 
-        Vector3 forward = Camera.main.transform.forward;
-        Vector3 right = Camera.main.transform.right;
-        forward.y = 0;
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();
-
-        Vector3 moveDir = (forward * v + right * h).normalized;
-        float move_amount = Mathf.Clamp01(moveDir.magnitude);
-
+        float move_amount = Mathf.Clamp01(new Vector2(h, v).magnitude);
         animator.SetFloat("MoveAmount", move_amount, 0.1f, Time.deltaTime);
 
-        if (moveDir != Vector3.zero)
-        {
-            Quaternion targetRot = Quaternion.LookRotation(moveDir);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
-        }
+        Vector3 moveDirection = (transform.right * h + transform.forward * v).normalized;
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
 
     void ResetAllBools()
