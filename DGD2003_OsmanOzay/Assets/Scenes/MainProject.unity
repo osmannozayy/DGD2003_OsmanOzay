@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 68671794}
   - component: {fileID: 68671793}
   - component: {fileID: 68671792}
-  - component: {fileID: 68671791}
+  - component: {fileID: 68671796}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -590,38 +590,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &68671791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68671790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
-  ShowDebugText: 0
-  ShowCameraFrustum: 1
-  IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
-  UpdateMethod: 2
-  BlendUpdateMethod: 1
-  LensModeOverride:
-    Enabled: 0
-    DefaultMode: 2
-  DefaultBlend:
-    Style: 1
-    Time: 2
-    CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
 --- !u!114 &68671792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +675,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 33.6
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -740,6 +708,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 20.901, y: 123.446, z: 0.008}
+--- !u!114 &68671796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68671790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6213683c1b7325498118c3fe0a990df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  target: {fileID: 381485857}
+  distance: 5
+  sensitivity: 15
 --- !u!1001 &84275077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2664,9 +2647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29128b60e81e68479666d95005e203e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  playerCamera: {fileID: 0}
-  mouseSensitivity: 200
+  playerCamera: {fileID: 68671795}
   moveSpeed: 5
+  turnSmoothTime: 0.1
 --- !u!4 &381485857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
@@ -2690,13 +2673,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.68
+  m_Height: 1.43
   m_Radius: 0.22
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.89, z: 0.02}
+  m_Center: {x: 0, y: 0.8, z: 0.02}
 --- !u!1001 &387656268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5363,7 +5346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.368
+      value: 0.355
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5429,6 +5412,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3970745c06ca8a440a8397bba3aa023f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
