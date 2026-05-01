@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1.5f;
     public float gravity = -19.62f;
     public float turnSmoothTime = 0.15f;
-    public float interactionDistance = 5f;
+
+    public float interactionDistance = 1f;
     public LayerMask paperLayer;
+    public bool showCrosshair = true;
 
     private float turnSmoothVelocity;
     private float velocityY;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        if (playerCamera == null) playerCamera = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -88,20 +91,28 @@ public class PlayerController : MonoBehaviour
 
     void Interact()
     {
-        Debug.DrawRay(playerCamera.position, playerCamera.forward * interactionDistance, Color.red, 2f);
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
 
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, interactionDistance))
+        if (Physics.Raycast(ray, out hit, 10f, paperLayer))
         {
-            Debug.Log("Hit: " + hit.collider.name + " | Layer: " + LayerMask.LayerToName(hit.collider.gameObject.layer));
+            float distanceToPlayerBody = Vector3.Distance(transform.position, hit.point);
 
-            if ((paperLayer.value & (1 << hit.collider.gameObject.layer)) > 0)
+            if (distanceToPlayerBody <= interactionDistance + 1.5f)
             {
                 Destroy(hit.collider.gameObject);
             }
         }
-        else
+    }
+
+    void OnGUI()
+    {
+        if (showCrosshair)
         {
-            Debug.Log("No hit");
+            float size = 20;
+            float posX = Screen.width / 2 - (size / 2);
+            float posY = Screen.height / 2 - (size / 2);
+            GUI.Box(new Rect(posX, posY, size, size), "+");
         }
     }
 }
