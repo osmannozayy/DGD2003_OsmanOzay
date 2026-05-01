@@ -2648,8 +2648,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerCamera: {fileID: 68671795}
-  moveSpeed: 5
+  walkSpeed: 4
+  sprintSpeed: 8
+  jumpHeight: 1.5
+  gravity: -19.62
   turnSmoothTime: 0.1
+  interactionDistance: 10
+  paperLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &381485857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6f60ccbdc7e7a96428515c214ca7dc62, type: 3}
