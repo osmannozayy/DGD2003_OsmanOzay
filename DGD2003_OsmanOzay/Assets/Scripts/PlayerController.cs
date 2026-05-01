@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         float currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
 
         Vector3 direction = new Vector3(h, 0f, v).normalized;
+        Vector3 finalMovement = Vector3.zero;
 
         if (direction.magnitude >= 0.1f)
         {
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+            finalMovement = moveDir.normalized * currentSpeed;
         }
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame && controller.isGrounded)
@@ -66,7 +67,9 @@ public class PlayerController : MonoBehaviour
         }
 
         velocityY += gravity * Time.deltaTime;
-        controller.Move(new Vector3(0, velocityY, 0) * Time.deltaTime);
+        finalMovement.y = velocityY;
+
+        controller.Move(finalMovement * Time.deltaTime);
 
         float targetMoveAmount = 0f;
         if (direction.magnitude > 0)
