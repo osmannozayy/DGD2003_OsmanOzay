@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9ab1e8baf8510a4f9969783fd167475, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7466128663550038605}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9ab1e8baf8510a4f9969783fd167475, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6498996974755653883}
   m_SourcePrefab: {fileID: 100100000, guid: d9ab1e8baf8510a4f9969783fd167475, type: 3}
 --- !u!1 &2058675106838308241 stripped
 GameObject:
@@ -102,3 +105,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.025531657, y: 0.00043815305, z: 0.039821807}
   m_Center: {x: -0.000016378704, y: 1.4551915e-11, z: 0.00000035669652}
+--- !u!114 &6498996974755653883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058675106838308241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a8e1b1130a44246b62acaa34c02e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LectureNote
