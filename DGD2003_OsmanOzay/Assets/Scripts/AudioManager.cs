@@ -17,13 +17,9 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        audioSource = GetComponent<AudioSource>();
-    }
 
-    private void Start()
-    {
-        int isMuted = PlayerPrefs.GetInt("MusicMuted", 0);
-        audioSource.mute = (isMuted == 1);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.mute = false;
     }
 
     public void ToggleMusic()
@@ -31,8 +27,6 @@ public class AudioManager : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.mute = !audioSource.mute;
-            PlayerPrefs.SetInt("MusicMuted", audioSource.mute ? 1 : 0);
-            PlayerPrefs.Save();
         }
     }
 }
