@@ -5,9 +5,10 @@ public class NoteCounter : MonoBehaviour
 {
     private TextMeshProUGUI counterText;
     private int totalNotes;
-
+    PlayerInteract playerInteract;
     void Start()
     {
+        playerInteract = FindAnyObjectByType<PlayerInteract>();
         counterText = GetComponent<TextMeshProUGUI>();
         totalNotes = FindObjectsOfType<LectureNote>().Length;
     }
@@ -17,13 +18,11 @@ public class NoteCounter : MonoBehaviour
         int remainingNotes = FindObjectsOfType<LectureNote>().Length;
         int collectedNotes = totalNotes - remainingNotes;
 
+        counterText.text = "Collected Notes: " + collectedNotes + " / " + totalNotes;
         if (collectedNotes >= totalNotes)
         {
-            counterText.text = "CONGRATULATIONS! You collected all the notes!";
-        }
-        else
-        {
-            counterText.text = "Collected Notes: " + collectedNotes + " / " + totalNotes;
+
+         playerInteract.WinGame();
         }
     }
 }

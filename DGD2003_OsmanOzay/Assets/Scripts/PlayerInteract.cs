@@ -53,7 +53,7 @@ public class PlayerInteract : MonoBehaviour
             LoseGame();
         }
 
-        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
@@ -69,9 +69,10 @@ public class PlayerInteract : MonoBehaviour
                     {
                         counterText.text = collectedNotes + " / " + totalNotes;
                     }
-
+                    Debug.Log(collectedNotes + "  " + totalNotes);
                     if (collectedNotes >= totalNotes)
                     {
+                        
                         WinGame();
                     }
                 }
@@ -79,11 +80,12 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void WinGame()
+    public void WinGame()
     {
         isGameOver = true;
         if (winScreen != null) winScreen.SetActive(true);
         Time.timeScale = 0f;
+        Debug.Log("win");
     }
 
     void LoseGame()
