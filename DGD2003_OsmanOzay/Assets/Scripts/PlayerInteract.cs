@@ -20,6 +20,11 @@ public class PlayerInteract : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
+
+        if (winScreen != null) winScreen.SetActive(false);
+        if (loseScreen != null) loseScreen.SetActive(false);
+
         totalNotes = FindObjectsOfType<LectureNote>().Length;
 
         if (winScreen != null) winScreen.SetActive(false);
