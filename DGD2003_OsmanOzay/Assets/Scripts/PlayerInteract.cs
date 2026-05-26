@@ -89,7 +89,8 @@ public class PlayerInteract : MonoBehaviour
     {
         isGameOver = true;
         if (winScreen != null) winScreen.SetActive(true);
-        Time.timeScale = 0f;
+        GetComponent<AddressableSpawner>().SpawnEffect();
+        Invoke("FreezeTime", 0.5f);
         Debug.Log("win");
     }
 
