@@ -10,7 +10,7 @@ public class PlayerInteract : MonoBehaviour
     public float interactDistance = 5f;
 
     [Header("Timer & UI Screens")]
-    public float timeLimit = 60f;
+    public float timeLimit = 90f;
     public GameObject winScreen;
     public GameObject loseScreen;
 
