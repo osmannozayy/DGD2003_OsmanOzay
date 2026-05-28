@@ -24,7 +24,7 @@ public class BestTimeManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        bestTimeText.text = "Best Time: " + Mathf.Ceil(savedBest).ToString() + "s";
+        bestTimeText.text = "Best Time: " + (90-Mathf.Ceil(savedBest)).ToString() + "s";
     }
 
     public void PlayAgainFix()
