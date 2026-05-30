@@ -1,38 +1,42 @@
-# Lost Compass (Working Title)
+# 🎓 MISSING LECTURE NOTES
 
-## 📖 About the Project
-**Lost Compass** is a 3D First-Person (FPS) puzzle and exploration game focused on spatial memory, orientation, and time management. 
+**MISSING LECTURE NOTES** is a fast-paced **Third-Person** time-attack game set in the quiet corridors of a university campus. Your mission is to find all your lost study materials and prevent missing your class before time runs out.
 
-The player wakes up in a symmetrical, maze-like laboratory environment. With no minimap or traditional compass available, the core challenge is to navigate the identical corridors and find the exit using purely environmental clues, sound, and a limited marking system.
+---
 
-## 🎮 Core Gameplay Loop
-* **Observe:** Examine the rooms and corridors to identify subtle environmental landmarks.
-* **Explore:** Navigate through the maze, avoiding dead ends and looping paths.
-* **Solve:** Locate and activate hidden generators to unlock the main exit door.
-* **Escape:** Reach the exit before the timer runs out or the facility loses power.
+## 🚀 Key Mechanics
 
-## ⚙️ Mechanics
-* **Movement:** Standard FPS WASD controls with a limited "Sprint" ability for quick escapes.
-* **Orientation System (No UI Map):**
-  * **Breadcrumb Trail:** Drop a limited number of digital markers to track your path and avoid getting lost.
-  * **Audio Clues:** Utilize 3D spatial audio to pinpoint a low-frequency beacon coming from the exit door.
-* **Visual Memory:** Rely on minor environmental storytelling elements (e.g., a flickering light, an overturned chair) to differentiate identical whitebox rooms.
+* **Time Attack Timer:** A strict countdown dictates the gameplay. The top-left corner constantly displays the **Time Left** until the class begins.
+* **Collection System:** Before the time is up, you must find the **Lecture Notes** hidden in various rooms within the campus.
+* **Dynamic Objective Tracker:** A live counter of your progress will appear in the top-right corner showing the **Collected Notes**.
+* **Fast-Paced Navigation:** Use the sprint mechanic to quickly search the rooms and the jump mechanic to overcome obstacles.
 
-## 🏗️ Level Design
-* **Phase 1 (Blockout):** A single-story, horizontal layout featuring a central corridor with symmetrical side rooms to introduce orientation mechanics.
-* **Progression:** Later levels introduce verticality (stairs, elevators) and distinct visual zones (e.g., Blue Sector, Red Sector) to increase mental mapping complexity.
+---
 
-## 💻 Technical Stack & Core Scripts
-Built with **Unity 3D** and **C#**. 
+## 🕹️ Game Loop
 
-The project is structured around a few foundational scripts, making it a great environment for building core C# logic step-by-step:
-* `PlayerMovement.cs`: Handles basic character walking, running, and mouse-look camera rotation.
-* `MarkerSystem.cs`: Manages instantiating marker prefabs at the player's location and tracking inventory limits.
-* `AudioBeacon.cs`: Uses Unity's 3D spatial audio system to adjust volume and pitch based on the player's distance from the exit.
-* `GameManager.cs`: The overarching script controlling the countdown timer, puzzle states, and win/loss conditions.
+1. **Preparation:** Enter the campus and immediately check the countdown timer on your UI.
+2. **Exploration:** While the clock is ticking, search the university rooms to find the scattered **Lecture Notes**.
+3. **Navigation:** Track your collection progress using the dynamic HUD on the top-right.
+4. **Intervention:** Locate the missing papers, approach them, and press the **"E" key** to collect them.
+5. **Final:** Collect all notes from the map to reach the **"YOU WIN"** screen. If time expires before finding everything, you will face the **"YOU LOSE"** panel.
 
-## 🚀 Getting Started
-1. Clone this repository to your local machine.
-2. Open the project via Unity Hub.
-3. Open the blockout scene (e.g., `Level_01_Whitebox`) located in the `Scenes` folder.
-4. Hit **Play** to test the environment.
+---
+
+## 🛠️ Technical Stack
+
+* **Game Engine:** Unity
+* **Programming Language:** C#
+* **Camera System:** First-Person Character Controller
+* **Optimization:** Addressables system for dynamic asset loading and PlayerPrefs for saving best times.
+
+---
+
+## 🎮 Controls
+
+| Action | Input |
+| :--- | :--- |
+| **Movement** | `W, A, S, D` |
+| **Sprint** | `Left Shift` |
+| **Jump** | `Space` |
+| **Interact** | `E` |
